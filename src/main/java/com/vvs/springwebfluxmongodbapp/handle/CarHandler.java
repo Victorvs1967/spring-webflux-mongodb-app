@@ -8,12 +8,12 @@ import com.vvs.springwebfluxmongodbapp.dto.CarDto;
 import com.vvs.springwebfluxmongodbapp.service.CarService;
 
 import lombok.RequiredArgsConstructor;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -42,7 +42,7 @@ public class CarHandler {
       .flatMap(brands -> ServerResponse
         .ok()
         .contentType(APPLICATION_JSON)
-        .body(Mono.just(brands), List.class));
+        .body(Mono.just(new HashSet<String>(brands)), Set.class));
   }
 
   public Mono<ServerResponse> getCarsByBrand(ServerRequest request) {
