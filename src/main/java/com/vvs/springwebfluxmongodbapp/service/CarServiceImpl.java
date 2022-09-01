@@ -52,7 +52,7 @@ public class CarServiceImpl implements CarService {
   @Override
   public Mono<CarDto> findCarByModel(String model) {
     return carRepository.findByModel(model)
-      .switchIfEmpty(Mono.error(new RuntimeException("Car not found.")))
+      .switchIfEmpty(Mono.error(new RuntimeException("Model not found.")))
       .map(car -> carMapper.convert(car, CarDto.class));
   }
 
