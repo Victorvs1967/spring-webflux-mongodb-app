@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.vvs.springwebfluxmongodbapp.dto.CarDto;
-import com.vvs.springwebfluxmongodbapp.mapper.CarMapper;
+import com.vvs.springwebfluxmongodbapp.mapper.AppMapper;
 import com.vvs.springwebfluxmongodbapp.model.Car;
 import com.vvs.springwebfluxmongodbapp.repository.CarRepository;
 
@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 public class CarServiceImpl implements CarService {
 
   private final CarRepository carRepository;
-  private final CarMapper carMapper;
+  private final AppMapper carMapper;
 
   @Override
   public Flux<CarDto> findAllCars() {

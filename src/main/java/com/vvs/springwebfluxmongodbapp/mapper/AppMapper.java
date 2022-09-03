@@ -7,7 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CarMapper {
+public class AppMapper {
   
   private ModelMapper modelMapper = new ModelMapper();
 
