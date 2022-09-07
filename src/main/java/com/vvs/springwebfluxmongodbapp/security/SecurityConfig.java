@@ -59,7 +59,8 @@ public class SecurityConfig {
       .authorizeExchange()
       .pathMatchers(OPTIONS).permitAll()
       .pathMatchers(WHITELIST_AUTH_URLS).permitAll()
-      .anyExchange().authenticated().and()
+      .anyExchange().permitAll().and()
+      // .anyExchange().authenticated().and()
       .build();
   }
 

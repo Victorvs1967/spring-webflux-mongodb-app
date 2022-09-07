@@ -1,5 +1,6 @@
 package com.vvs.springwebfluxmongodbapp.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -8,13 +9,12 @@ import org.springframework.security.web.server.context.ServerSecurityContextRepo
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 
-import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @Component
-@RequiredArgsConstructor
 public class SecurityContextRepository implements ServerSecurityContextRepository {
 
+  @Autowired
   private AuthenticationManager authenticationManager;
 
   private final String AUTH_TOKEN_PREFIX = "Bearer ";
@@ -27,6 +27,7 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
       .map(token -> token.substring(AUTH_TOKEN_PREFIX.length()))
       .map(authToken -> new UsernamePasswordAuthenticationToken(authToken, authToken))
       .flatMap(authenticationManager::authenticate)
+      .switchIfEmpty(Mono.error(new RuntimeException("No authorized...")))
       .map(SecurityContextImpl::new);
   }
 
