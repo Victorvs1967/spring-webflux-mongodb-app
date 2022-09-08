@@ -6,20 +6,23 @@ const body = document.querySelector('body'),
   burger = document.querySelector('.burger__item'),
   close = document.querySelector('.close__item'),
   links = document.querySelectorAll('.main-nav__link'),
-  modal = document.querySelector('.modal');
+  login = document.querySelector('.modal__login'),
+  signup = document.querySelector('.modal__signup');
 
 const openMenu = () => {
   body.classList.add(MENU_OPENED_CLASS);
   burger.style.display = 'none';
   close.style.display = 'block';
-  modal.style.display = 'block';
+  signup.style.display = 'block';
+  // login.style.display = 'block';
 };
 
 const closeMenu = () => {
   body.classList.remove(MENU_OPENED_CLASS);
   burger.style.display = 'block';
   close.style.display = 'none';
-  modal.style.display = 'none';
+  signup.style.display = 'none';
+  // login.style.display = 'none';
 };
 
 export const burgerMenu = () => {
