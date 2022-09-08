@@ -5,18 +5,21 @@ const body = document.querySelector('body'),
   control = document.querySelector('.burger-menu__control'),
   burger = document.querySelector('.burger__item'),
   close = document.querySelector('.close__item'),
-  links = document.querySelectorAll('.main-nav__link');
+  links = document.querySelectorAll('.main-nav__link'),
+  modal = document.querySelector('.modal');
 
 const openMenu = () => {
   body.classList.add(MENU_OPENED_CLASS);
   burger.style.display = 'none';
   close.style.display = 'block';
+  modal.style.display = 'block';
 };
 
 const closeMenu = () => {
   body.classList.remove(MENU_OPENED_CLASS);
   burger.style.display = 'block';
   close.style.display = 'none';
+  modal.style.display = 'none';
 };
 
 export const burgerMenu = () => {

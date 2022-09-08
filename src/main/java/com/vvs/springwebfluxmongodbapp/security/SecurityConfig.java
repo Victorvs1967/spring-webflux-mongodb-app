@@ -26,7 +26,7 @@ public class SecurityConfig {
   private SecurityContextRepository securityContextRepository;
   private AuthenticationManager authenticationManager;
 
-  private final static String[] WHITELIST_AUTH_URLS = {"/auth/signup", "/auth/login"};
+  private final static String[] WHITELIST_AUTH_URLS = {"/**", "/auth/signup", "/auth/login"};
   
   // Cors
   @Value("${app.host.url}")
@@ -59,8 +59,7 @@ public class SecurityConfig {
       .authorizeExchange()
       .pathMatchers(OPTIONS).permitAll()
       .pathMatchers(WHITELIST_AUTH_URLS).permitAll()
-      .anyExchange().permitAll().and()
-      // .anyExchange().authenticated().and()
+      .anyExchange().authenticated().and()
       .build();
   }
 

@@ -1,0 +1,10 @@
+section.modal
+  .container.modal-container
+  form(method="POST", action="/auth/login").modal-form
+    span.modal__title Login
+    hr
+    label.modal-form__title Username
+    input(type="text", placeholder="enter username...", name="username").modal-form__input
+    label.modal-form__title Password
+    input(type="password", placeholder="enter password...", name="password").modal-form__input
+    button(type="submit").modal-form__btn Login

@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webflux application</title>
 
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/main.js" defer></script>
-</head>
-<body>
-  <a href="#!" class="data">
-    <h1>Hello, Webflux!</h1>
-    <hr>
-  </a>
-  <ul class="cars"></ul>
-</body>
+<html> 
+  <head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page </title>
+    <link rel="stylesheet" href="/css/main.min.css">
+    <script src="/js/main.min.js" defer></script>
+  </head>
 </html>
+<body>
+  <header class="header"></header>
+  <main class="main">
+    <div class="main-container">
+      <h1 class="main-container__title">Hello, World!</h1>
+      <div class="main-container__image"><img src="img/photo.png" alt="image"></div>
+      <div class="social-networks">
+        <svg class="social-networks__icon">
+          <use class="icon__telegram" xlink:href="img/icons/icons.svg#telegram"></use>
+        </svg>
+      </div>
+    </div>
+    <button class="burger-menu__control"><span class="burger__item"></span><span class="close__item"></span></button>
+  </main>
+  <section class="modal">
+    <div class="container modal-container"></div>
+    <form class="modal-form" method="POST" action="/auth/login"><span class="modal__title">Login</span>
+      <label class="modal-form__title">Username</label>
+      <input class="modal-form__input" type="text" placeholder="enter username..." name="username">
+      <label class="modal-form__title">Password</label>
+      <input class="modal-form__input" type="password" placeholder="enter password..." name="password">
+      <button class="modal-form__btn" type="submit">Login</button>
+    </form>
+  </section>
+  <footer class="footer"></footer>
+</body>
