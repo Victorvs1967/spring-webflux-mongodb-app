@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.vvs.springwebfluxmongodbapp.dto.ResponseDto;
 import com.vvs.springwebfluxmongodbapp.dto.UserDto;
 import com.vvs.springwebfluxmongodbapp.mapper.AppMapper;
+import com.vvs.springwebfluxmongodbapp.model.Role;
 import com.vvs.springwebfluxmongodbapp.model.User;
 import com.vvs.springwebfluxmongodbapp.repository.UserRepository;
 import com.vvs.springwebfluxmongodbapp.utils.JwtUtils;
@@ -33,6 +34,7 @@ public class AuthServiceImpl implements AuthService {
       .map(aBoolean -> user)
       .map(userDto -> appMapper.convert(userDto, User.class))
       .doOnNext(usr -> usr.setPassword(passwordEncoder.encode(usr.getPassword())))
+      .doOnNext(usr -> usr.setRole(user.getRole() != null ? user.getRole() : Role.USER))
       .flatMap(userRepository::save)
       .map(usr -> appMapper.convert(usr, UserDto.class));
   }
