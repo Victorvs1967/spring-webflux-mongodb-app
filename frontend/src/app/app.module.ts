@@ -9,11 +9,13 @@ import { MaterialUiModule } from './material-ui/material-ui.module';
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

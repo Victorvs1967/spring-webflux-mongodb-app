@@ -26,7 +26,7 @@ public class UserHandler {
     String token = request.headers().firstHeader("authorization").substring(7);
     return jwtUtils.validateToken(token)
       .map(isValid -> !isValid)
-      .switchIfEmpty(Mono.error(new RuntimeException("Npt autorized...")))
+      .switchIfEmpty(Mono.error(new RuntimeException("Not autorized...")))
       .map(autorized -> userService.getUsers())
       .flatMap(users -> ServerResponse
         .ok()

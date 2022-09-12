@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <nav class="nav-menu">
+    <button mat-icon-button routerLink="">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-button routerLink="main">Main</button>
+  </nav>
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="auth/login" *ngIf="!(isLogin | async)">
+    <mat-icon>login</mat-icon>
+  </button>
+  <button mat-icon-button (click)="logout()" *ngIf="isLogin | async">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { UsersComponent } from './components/users/users.component';
+import { CarsComponent } from './components/cars/cars.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent,
     children: [
-      { path: 'users', component: MainComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'cars', component: CarsComponent },
     ],
   },
 ];
@@ -16,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MainComponent,
-    UsersComponent
+    UsersComponent,
+    CarsComponent
   ],
   imports: [
     CommonModule,

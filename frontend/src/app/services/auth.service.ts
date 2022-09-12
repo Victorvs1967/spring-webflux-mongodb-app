@@ -27,12 +27,12 @@ export class AuthService {
   }
 
   private onLogin(): boolean {
-    return sessionStorage.getItem('tokrn') ? true : false;
+    return sessionStorage.getItem('token') ? true : false;
   }
 
   constructor(private http: HttpClient) { }
 
-  getToken(): string | null {
+  private getToken(): string | null {
     return sessionStorage.getItem('token') ? sessionStorage.getItem('token') : '';
   }
 
@@ -52,5 +52,15 @@ export class AuthService {
 
   signup(user: User): Observable<any | boolean> {
     return this.http.post(environment.backendUrl.concat(environment.authUrl).concat('/signup'), user);
+  }
+
+  logout(param = true): Observable<any | boolean> {
+    if (param) {
+      this.clearToken();
+      this.loggedIn.next(false);
+      setTimeout(() => {}, 500);
+      return of(true);
+    }
+    return of(false);
   }
 }

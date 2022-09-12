@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  isLogin: Observable<boolean> | undefined;
+
+  constructor(private auth: AuthService) {
+    // this.isLogin = this.auth.getToken() ? true : false;
+    this.isLogin = this.auth.isLoggedIn;
+  }
 
   ngOnInit(): void {
   }

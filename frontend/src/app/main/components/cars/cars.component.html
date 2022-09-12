@@ -1,0 +1,23 @@
+<mat-card class="cars-list">
+  <mat-card-content>
+    <mat-card-title>Cars</mat-card-title>
+    <mat-divider></mat-divider>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Brand Column -->
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef>Brand</th>
+        <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
+      </ng-container>
+      <!-- Model Column -->
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef>Model</th>
+        <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+      </ng-container>
+
+      <!-- Table Setup -->
+      <tr class="row-header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="row" mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+
+</mat-card>

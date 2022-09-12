@@ -1,5 +1,7 @@
 package com.vvs.springwebfluxmongodbapp.dto;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.vvs.springwebfluxmongodbapp.model.Role;
@@ -24,6 +26,11 @@ public class UserDto {
 
   private String firstName;
   private String lastName;
+  private String phone;
+  private String[] socials;
+
+  private Date onCreate;
+  private Date onUpdate;
 
   private Role role;
 

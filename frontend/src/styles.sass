@@ -1,5 +1,4 @@
 @use '@angular/material' as mat
-
 @include mat.core()
 
 // Define a light theme
@@ -13,9 +12,9 @@ $dark-accent: mat.define-palette(mat.$blue-grey-palette)
 $dark-theme: mat.define-dark-theme((color: (primary: $dark-primary, accent: $dark-accent)))
 
 // Apply the dark theme by default
-@include mat.core-theme($dark-theme)
-@include mat.all-component-themes($dark-theme)
-@include mat.button-theme($dark-theme)
+// @include mat.core-theme($dark-theme)
+// @include mat.all-component-themes($dark-theme)
+// @include mat.button-theme($dark-theme)
 
 // Apply the light theme only when the `.my-light-theme` CSS class is applied
 // to an ancestor element of the components (such as `body`).
@@ -58,3 +57,6 @@ h4
 h5
   font-size: 1.6rem
   line-height: 1.6
+
+.spacer
+  flex: 1 1 auto
