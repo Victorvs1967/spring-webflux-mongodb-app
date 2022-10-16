@@ -38,6 +38,5 @@ public class AuthHandler {
         .ok()
         .contentType(APPLICATION_JSON)
         .body(Mono.just(token), ResponseDto.class)));
-
   }
 }

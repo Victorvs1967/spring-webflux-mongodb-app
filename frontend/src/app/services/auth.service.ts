@@ -32,10 +32,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private getToken(): string | null {
-    return sessionStorage.getItem('token') ? sessionStorage.getItem('token') : '';
-  }
-
   login(userInfo: { username: string, password: string }): Observable<any | boolean> {
     return this.http.post(environment.backendUrl.concat(environment.authUrl).concat('/login'), userInfo)
       .pipe(map((token: any) => {

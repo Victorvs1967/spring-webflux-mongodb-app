@@ -28,7 +28,7 @@ public class SecurityConfig {
 
   private final static String[] WHITELIST_AUTH_URLS = {"/**", "/auth/signup", "/auth/login"};
   
-  // Cors
+  // Cors Config
   @Value("${app.host.url}")
   private String hostUrl;
 
@@ -44,7 +44,7 @@ public class SecurityConfig {
 
     return (org.springframework.web.cors.reactive.CorsConfigurationSource) source;
   }
-
+  // Security Chain
   @Bean
   public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
     return http
