@@ -228,7 +228,7 @@ function UsersComponent_td_11_Template(rf, ctx) { if (rf & 1) {
 } }
 function UsersComponent_th_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "th", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "Firs tName");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, "First Name");
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } }
 function UsersComponent_td_14_Template(rf, ctx) { if (rf & 1) {

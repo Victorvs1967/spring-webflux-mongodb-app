@@ -1,0 +1,11 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onEdit()">
+  <div class="NgxEditor__Wrapper">
+    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+    <ngx-editor
+      formControlName="content"
+      [editor]="editor"
+      [placeholder]="'Type here...'"
+    ></ngx-editor>
+  </div>
+  <button mat-raised-button color="primary" type="submit" class="btn submit">Save</button>
+</form>
