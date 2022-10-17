@@ -156,6 +156,18 @@ __webpack_require__.r(__webpack_exports__);
 
 class EditorComponent {
     constructor() {
+        this.toolbar = [
+            // default value
+            ['bold', 'italic'],
+            ['underline', 'strike'],
+            ['code', 'blockquote'],
+            ['ordered_list', 'bullet_list'],
+            [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+            ['link', 'image'],
+            ['text_color', 'background_color'],
+            ['align_left', 'align_center', 'align_right', 'align_justify'],
+            ['horizontal_rule', 'format_clear'],
+        ];
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormGroup({
             content: new _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormControl(null, [ngx_editor__WEBPACK_IMPORTED_MODULE_1__.Validators.required()]),
         });
@@ -175,7 +187,7 @@ class EditorComponent {
     }
 }
 EditorComponent.ɵfac = function EditorComponent_Factory(t) { return new (t || EditorComponent)(); };
-EditorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: EditorComponent, selectors: [["app-editor"]], decls: 6, vars: 4, consts: [[1, "form", 3, "formGroup", "ngSubmit"], [1, "NgxEditor__Wrapper"], [3, "editor"], ["formControlName", "content", 3, "editor", "placeholder"], ["mat-raised-button", "", "color", "primary", "type", "submit", 1, "btn", "submit"]], template: function EditorComponent_Template(rf, ctx) { if (rf & 1) {
+EditorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: EditorComponent, selectors: [["app-editor"]], decls: 6, vars: 5, consts: [[1, "form", 3, "formGroup", "ngSubmit"], [1, "NgxEditor__Wrapper"], [3, "editor", "toolbar"], ["formControlName", "content", 3, "editor", "placeholder"], ["mat-raised-button", "", "color", "primary", "type", "submit", 1, "btn", "submit"]], template: function EditorComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function EditorComponent_Template_form_ngSubmit_0_listener() { return ctx.onEdit(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
@@ -187,7 +199,7 @@ EditorComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("formGroup", ctx.form);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("editor", ctx.editor);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("editor", ctx.editor)("toolbar", ctx.toolbar);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("editor", ctx.editor)("placeholder", "Type here...");
     } }, dependencies: [_angular_material_button__WEBPACK_IMPORTED_MODULE_3__.MatButton, ngx_editor__WEBPACK_IMPORTED_MODULE_1__.NgxEditorComponent, ngx_editor__WEBPACK_IMPORTED_MODULE_1__.MenuComponent, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_0__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormGroupDirective, _angular_forms__WEBPACK_IMPORTED_MODULE_0__.FormControlName], styles: [".NgxEditor__Wrapper[_ngcontent-%COMP%] {\n  min-height: 50vh;\n  background: white;\n  text-align: left;\n}\n\n.btn[_ngcontent-%COMP%] {\n  width: 10rem;\n  margin-top: 1rem;\n  text-transform: uppercase;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVkaXRvci5jb21wb25lbnQuc2FzcyIsIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL01hY2ludG9zaCUyMEhEL0RldmVsb3Blci95b3V0dWJlLWxlc3NvbnMvc3ByaW5nLXdlYmZsdXgtbW9uZ29kYi1hcHAvZnJvbnRlbmQvc3JjL2FwcC9jb21wb25lbnRzL2VkaXRvci9lZGl0b3IuY29tcG9uZW50LnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNDRjs7QURBQTtFQUNFLFlBQUE7RUFDQSxnQkFBQTtFQUNBLHlCQUFBO0FDR0YiLCJmaWxlIjoiZWRpdG9yLmNvbXBvbmVudC5zYXNzIiwic291cmNlc0NvbnRlbnQiOlsiLk5neEVkaXRvcl9fV3JhcHBlclxuICBtaW4taGVpZ2h0OiA1MHZoXG4gIGJhY2tncm91bmQ6IHdoaXRlXG4gIHRleHQtYWxpZ246IGxlZnRcbi5idG5cbiAgd2lkdGg6IDEwcmVtXG4gIG1hcmdpbi10b3A6IDFyZW1cbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZVxuIiwiLk5neEVkaXRvcl9fV3JhcHBlciB7XG4gIG1pbi1oZWlnaHQ6IDUwdmg7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG4uYnRuIHtcbiAgd2lkdGg6IDEwcmVtO1xuICBtYXJnaW4tdG9wOiAxcmVtO1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufSJdfQ== */"] });
