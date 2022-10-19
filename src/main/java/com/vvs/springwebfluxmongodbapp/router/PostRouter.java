@@ -18,7 +18,8 @@ public class PostRouter {
     return RouterFunctions.route()
       .nest(path("/api/v1/posts"), builder -> builder
         .GET("", handler::getPosts)
-        .POST("", handler::createPost))
+        .POST("", handler::createPost)
+        .DELETE("/{id}", handler::deletePost))
       .build();
   }
 }

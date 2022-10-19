@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Editor, toDoc, Toolbar, Validators  } from 'ngx-editor';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Editor, Toolbar, Validators as EditorValidator } from 'ngx-editor';
+import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-editor',
@@ -8,6 +9,7 @@ import { Editor, toDoc, Toolbar, Validators  } from 'ngx-editor';
   styleUrls: ['./editor.component.sass']
 })
 export class EditorComponent implements OnInit, OnDestroy {
+  form: UntypedFormGroup;
   editor: Editor;
   toolbar: Toolbar = [
     // default value
@@ -21,11 +23,14 @@ export class EditorComponent implements OnInit, OnDestroy {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
     ['horizontal_rule', 'format_clear'],
   ];
-  form = new FormGroup({
-    content: new FormControl(null, [ Validators.required() ]),
-  });
 
-  constructor() { 
+  constructor(private formBuilder: FormBuilder ) { 
+    this.form = this.formBuilder.group({
+      title: [ null, [ Validators.required ]],
+      author: [ null, [ Validators.required ]],
+      image: [ null, [] ],
+      content: [ null, [ EditorValidator.required() ]],
+    });
     this.editor = new Editor();
   }
   
@@ -41,7 +46,9 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   onEdit() {
-    console.log(this.form.value);
+    const post: Post = this.form.value;
+    console.log(post);
+    this.form.reset();
   }
 
 }

@@ -11,8 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from './components/header/header.component';
-import { EditorComponent } from './components/editor/editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditorComponent } from './main/components/editor/editor.component';
 
 @NgModule({
   declarations: [

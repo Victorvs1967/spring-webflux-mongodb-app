@@ -8,7 +8,8 @@ export const environment = {
   authUrl: '/auth',
   apiUrl: '/api/v1',
   usersUrl: '/users',
-  carsUrl: '/cars'
+  carsUrl: '/cars',
+  postsUrl: '/posts',
 };
 
 /*

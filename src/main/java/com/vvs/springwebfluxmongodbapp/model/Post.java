@@ -23,7 +23,7 @@ public class Post {
   private Date onCreate;
   private Date onUpdate;
   private Boolean published;
-  private String content;
+  private Object content;
 
   public Post() {
     onCreate = Date.from(Instant.now());

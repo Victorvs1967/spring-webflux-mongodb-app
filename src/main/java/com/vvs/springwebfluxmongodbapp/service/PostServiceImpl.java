@@ -18,8 +18,8 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
 
-  private PostRepository postRepository;
-  private AppMapper postMapper;
+  private final PostRepository postRepository;
+  private final AppMapper postMapper;
 
   @Override
   public Flux<PostDto> getPosts() {

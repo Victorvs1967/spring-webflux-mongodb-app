@@ -5,12 +5,14 @@ import { MainComponent } from './components/main/main.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { UsersComponent } from './components/users/users.component';
 import { CarsComponent } from './components/cars/cars.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent,
     children: [
       { path: 'users', component: UsersComponent },
       { path: 'cars', component: CarsComponent },
+      { path: 'post', component: EditorComponent },
     ],
   },
 ];
@@ -19,7 +21,7 @@ const routes: Routes = [
   declarations: [
     MainComponent,
     UsersComponent,
-    CarsComponent
+    CarsComponent,
   ],
   imports: [
     CommonModule,

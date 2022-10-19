@@ -144,9 +144,9 @@ MainComponent.ɵfac = function MainComponent_Factory(t) {
 MainComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
   type: MainComponent,
   selectors: [["app-main"]],
-  decls: 10,
+  decls: 12,
   vars: 3,
-  consts: [[1, "container"], ["mat-button", "", "routerLink", "users", 3, "disabled"], ["mat-button", "", "routerLink", "cars"]],
+  consts: [[1, "container"], ["mat-button", "", "routerLink", "users", 3, "disabled"], ["mat-button", "", "routerLink", "cars"], ["mat-button", "", "routerLink", "post"]],
   template: function MainComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "h1");
@@ -159,8 +159,11 @@ MainComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["�
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "button", 2);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "CARS LIST");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "button", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "ADD POST");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](9, "router-outlet");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](11, "router-outlet");
     }
 
     if (rf & 2) {
@@ -424,13 +427,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainModule": () => (/* binding */ MainModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4666);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 124);
 /* harmony import */ var _components_main_main_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/main/main.component */ 1499);
 /* harmony import */ var _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../material-ui/material-ui.module */ 6818);
 /* harmony import */ var _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/users/users.component */ 9594);
 /* harmony import */ var _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/cars/cars.component */ 3536);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/editor/editor.component */ 6586);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2560);
+
 
 
 
@@ -444,19 +449,20 @@ const routes = [
         children: [
             { path: 'users', component: _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__.UsersComponent },
             { path: 'cars', component: _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent },
+            { path: 'post', component: _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__.EditorComponent },
         ],
     },
 ];
 class MainModule {
 }
 MainModule.ɵfac = function MainModule_Factory(t) { return new (t || MainModule)(); };
-MainModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineNgModule"]({ type: MainModule });
-MainModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjector"]({ imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule,
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__.RouterModule.forChild(routes),
+MainModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineNgModule"]({ type: MainModule });
+MainModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector"]({ imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
+        _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule.forChild(routes),
         _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵsetNgModuleScope"](MainModule, { declarations: [_components_main_main_component__WEBPACK_IMPORTED_MODULE_0__.MainComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsetNgModuleScope"](MainModule, { declarations: [_components_main_main_component__WEBPACK_IMPORTED_MODULE_0__.MainComponent,
         _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__.UsersComponent,
-        _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_6__.RouterModule, _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] }); })();
+        _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule, _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] }); })();
 
 
 /***/ }),
