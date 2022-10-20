@@ -7,13 +7,6 @@ static/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
 ### VS Code ###
 .vscode/
 .DS_Store

@@ -4,10 +4,13 @@
       <mat-icon>home</mat-icon>
     </button>
     <button mat-button routerLink="main">Main</button>
-    <button mat-button routerLink="post">Add Post</button>
+    <button mat-button (click)="createPost()" [disabled]="!(isLogin | async)">Add post</button>
   </nav>
   <span class="spacer"></span>
-  <button mat-icon-button routerLink="auth/login" *ngIf="!(isLogin | async)">
+  <button mat-icon-button (click)="signUp()">
+    <mat-icon>person_add</mat-icon>
+  </button>
+  <button mat-icon-button (click)="login()" *ngIf="!(isLogin | async)">
     <mat-icon>login</mat-icon>
   </button>
   <button mat-icon-button (click)="logout()" *ngIf="isLogin | async">

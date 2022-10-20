@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -12,9 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent implements OnInit {
 
   signupForm?: UntypedFormGroup;
-  // isLogin: Observable<boolean> | undefined;
 
-  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private auth: AuthService) { }
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    public dialogRef: MatDialogRef<SignupComponent>, 
+    @Inject(MAT_DIALOG_DATA) public user: User, 
+  ) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
@@ -26,14 +28,23 @@ export class SignupComponent implements OnInit {
       phone: [ '' ],
     });
   }
-
-  signupSubmit() {
-    this.auth.signup(this.signupForm?.value).subscribe({
-      next: () => {
-        this.signupForm?.reset();
-        this.router.navigate(['/auth/login']);
-      },
-      error: err => alert(err.message)
-    });
+  onNoClick(): void {
+    this.dialogRef.close(null);
   }
+  
+  signupSubmit() {
+    const { username, password, email, firstName, lastName, phone } = this.signupForm?.value;
+
+    const user: User = {
+      username,
+      password,
+      email,
+      firstName,
+      lastName,
+      phone,
+    };
+
+    this.dialogRef.close(user);
+  }
+
 }

@@ -1,10 +1,10 @@
 export interface Post {
-  id: string;
+  id?: string;
   title: string;
   image: string;
   author: string;
-  onCreate: Date;
-  onUpdate: Date;
-  published: boolean;
+  onCreate?: Date;
+  onUpdate?: Date;
+  published?: boolean;
   content: any;
 }

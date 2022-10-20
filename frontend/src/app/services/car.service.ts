@@ -12,7 +12,8 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   public getCarsList(): Observable<Car[]> {
-    return this.http.get<Car[]>(environment.backendUrl
+    return this.http.get<Car[]>(
+      environment.backendUrl
       .concat(environment.apiUrl)
       .concat(environment.carsUrl)
     );

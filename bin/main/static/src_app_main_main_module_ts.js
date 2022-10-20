@@ -114,12 +114,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainComponent": () => (/* binding */ MainComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
 /* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/services/auth.service */ 7556);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 124);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/button */ 4522);
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/divider */ 1528);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var src_app_services_post_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/post.service */ 9166);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/button */ 4522);
+/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/divider */ 1528);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 4666);
+
 
 
 
@@ -127,53 +129,96 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class MainComponent {
-  constructor(auth) {
-    this.auth = auth; // this.isLogin = this.auth.getToken() ? true : false;
+  constructor(auth, postService) {
+    this.auth = auth;
+    this.postService = postService; // this.isLogin = this.auth.getToken() ? true : false;
 
     this.isLogin = this.auth.isLoggedIn;
   }
 
   ngOnInit() {}
 
+  createPost() {
+    this.postService.openDialog();
+  }
+
 }
 
 MainComponent.ɵfac = function MainComponent_Factory(t) {
-  return new (t || MainComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService));
+  return new (t || MainComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_post_service__WEBPACK_IMPORTED_MODULE_1__.PostService));
 };
 
-MainComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
+MainComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
   type: MainComponent,
   selectors: [["app-main"]],
-  decls: 12,
-  vars: 3,
-  consts: [[1, "container"], ["mat-button", "", "routerLink", "users", 3, "disabled"], ["mat-button", "", "routerLink", "cars"], ["mat-button", "", "routerLink", "post"]],
+  decls: 13,
+  vars: 6,
+  consts: [[1, "container"], ["mat-button", "", "routerLink", "users", 3, "disabled"], ["mat-button", "", "routerLink", "cars"], ["mat-button", "", 3, "disabled", "click"]],
   template: function MainComponent_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "h1");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Main Page...");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "mat-divider");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "button", 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipe"](5, "async");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "USERS LIST");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "button", 2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "CARS LIST");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "button", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "ADD POST");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](11, "router-outlet");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "h1");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "Main Page...");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "mat-divider");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "button", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](5, "async");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](6, "USERS LIST");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "button", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](8, "CARS LIST");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "button", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function MainComponent_Template_button_click_9_listener() {
+        return ctx.createPost();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipe"](10, "async");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "ADD POST");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "router-outlet");
     }
 
     if (rf & 2) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", !_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind1"](5, 1, ctx.isLogin));
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("disabled", !_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](5, 2, ctx.isLogin));
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("disabled", !_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](10, 4, ctx.isLogin));
     }
   },
-  dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterOutlet, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink, _angular_material_button__WEBPACK_IMPORTED_MODULE_3__.MatButton, _angular_material_divider__WEBPACK_IMPORTED_MODULE_4__.MatDivider, _angular_common__WEBPACK_IMPORTED_MODULE_5__.AsyncPipe],
+  dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterOutlet, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink, _angular_material_button__WEBPACK_IMPORTED_MODULE_4__.MatButton, _angular_material_divider__WEBPACK_IMPORTED_MODULE_5__.MatDivider, _angular_common__WEBPACK_IMPORTED_MODULE_6__.AsyncPipe],
   styles: [".container[_ngcontent-%COMP%] {\n  height: 100%;\n  padding: 4rem;\n  background: #fef1cc;\n  text-align: center;\n}\n\n.mat-divider[_ngcontent-%COMP%] {\n  margin-bottom: 2rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uY29tcG9uZW50LnNhc3MiLCIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9NYWNpbnRvc2glMjBIRC9EZXZlbG9wZXIveW91dHViZS1sZXNzb25zL3NwcmluZy13ZWJmbHV4LW1vbmdvZGItYXBwL2Zyb250ZW5kL3NyYy9hcHAvbWFpbi9jb21wb25lbnRzL21haW4vbWFpbi5jb21wb25lbnQuc2FzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQUE7RUFDQSxhQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQ0NGOztBREFBO0VBQ0UsbUJBQUE7QUNHRiIsImZpbGUiOiJtYWluLmNvbXBvbmVudC5zYXNzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lclxuICBoZWlnaHQ6IDEwMCVcbiAgcGFkZGluZzogNHJlbVxuICBiYWNrZ3JvdW5kOiAjZmVmMWNjXG4gIHRleHQtYWxpZ246IGNlbnRlclxuLm1hdC1kaXZpZGVyXG4gIG1hcmdpbi1ib3R0b206IDJyZW0iLCIuY29udGFpbmVyIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICBwYWRkaW5nOiA0cmVtO1xuICBiYWNrZ3JvdW5kOiAjZmVmMWNjO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5tYXQtZGl2aWRlciB7XG4gIG1hcmdpbi1ib3R0b206IDJyZW07XG59Il19 */"]
 });
+
+/***/ }),
+
+/***/ 6113:
+/*!******************************************************************!*\
+  !*** ./src/app/main/components/post-list/post-list.component.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PostListComponent": () => (/* binding */ PostListComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var src_app_services_post_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/services/post.service */ 9166);
+
+
+class PostListComponent {
+    constructor(postService) {
+        this.postService = postService;
+        this.postService.getPosts().subscribe(posts => console.log(posts));
+    }
+    ngOnInit() {
+    }
+}
+PostListComponent.ɵfac = function PostListComponent_Factory(t) { return new (t || PostListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_post_service__WEBPACK_IMPORTED_MODULE_0__.PostService)); };
+PostListComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: PostListComponent, selectors: [["app-post-list"]], decls: 2, vars: 0, template: function PostListComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "post-list works!");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwb3N0LWxpc3QuY29tcG9uZW50LnNhc3MifQ== */"] });
+
 
 /***/ }),
 
@@ -427,14 +472,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MainModule": () => (/* binding */ MainModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 4666);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var ngx_editor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-editor */ 9679);
 /* harmony import */ var _components_main_main_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/main/main.component */ 1499);
 /* harmony import */ var _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../material-ui/material-ui.module */ 6818);
 /* harmony import */ var _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/users/users.component */ 9594);
 /* harmony import */ var _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/cars/cars.component */ 3536);
-/* harmony import */ var _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/editor/editor.component */ 6586);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/editor/editor.component */ 861);
+/* harmony import */ var _components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/post-list/post-list.component */ 6113);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
 
 
 
@@ -450,19 +501,26 @@ const routes = [
             { path: 'users', component: _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__.UsersComponent },
             { path: 'cars', component: _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent },
             { path: 'post', component: _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__.EditorComponent },
+            { path: 'posts', component: _components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_5__.PostListComponent },
         ],
     },
 ];
 class MainModule {
 }
 MainModule.ɵfac = function MainModule_Factory(t) { return new (t || MainModule)(); };
-MainModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineNgModule"]({ type: MainModule });
-MainModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector"]({ imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule,
-        _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule.forChild(routes),
+MainModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: MainModule });
+MainModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ imports: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule,
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule.forChild(routes),
+        ngx_editor__WEBPACK_IMPORTED_MODULE_9__.NgxEditorModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_10__.ReactiveFormsModule,
         _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsetNgModuleScope"](MainModule, { declarations: [_components_main_main_component__WEBPACK_IMPORTED_MODULE_0__.MainComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](MainModule, { declarations: [_components_main_main_component__WEBPACK_IMPORTED_MODULE_0__.MainComponent,
         _components_users_users_component__WEBPACK_IMPORTED_MODULE_2__.UsersComponent,
-        _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule, _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] }); })();
+        _components_cars_cars_component__WEBPACK_IMPORTED_MODULE_3__.CarsComponent,
+        _components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_5__.PostListComponent,
+        _components_editor_editor_component__WEBPACK_IMPORTED_MODULE_4__.EditorComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule, _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule, ngx_editor__WEBPACK_IMPORTED_MODULE_9__.NgxEditorModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_10__.ReactiveFormsModule,
+        _material_ui_material_ui_module__WEBPACK_IMPORTED_MODULE_1__.MaterialUiModule] }); })();
 
 
 /***/ }),

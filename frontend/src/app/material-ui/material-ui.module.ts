@@ -10,6 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule}  from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule }  from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MATERIAL_UI_COMPONENTS = [
   MatCardModule,
@@ -22,6 +23,7 @@ const MATERIAL_UI_COMPONENTS = [
   MatToolbarModule,
   MatTooltipModule,
   MatTableModule,
+  MatDialogModule,
 ];
 
 @NgModule({

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { UserInfo } from 'src/app/models/user-info.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,7 +15,12 @@ export class LoginComponent implements OnInit {
   loginForm?: UntypedFormGroup;
   isLogin: Observable<boolean> | undefined;
 
-  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private auth: AuthService) { }
+  constructor(
+    private formBuilder: UntypedFormBuilder, 
+    private auth: AuthService,
+    public dialogRef: MatDialogRef<LoginComponent>, 
+    @Inject(MAT_DIALOG_DATA) public user: UserInfo, 
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -24,14 +30,19 @@ export class LoginComponent implements OnInit {
     this.isLogin = this.auth.isLoggedIn;
   }
 
+  onNoClick(): void {
+    this.dialogRef.close(null);
+  }
+  
   loginSubmit() {
-    this.auth.login(this.loginForm?.value).subscribe({
-      next: () => {
-        this.loginForm?.reset();
-        this.router.navigate(['main']);
-      },
-      error: err => alert(err.message)
-    });
+    const { username, password } = this.loginForm?.value;
+
+    const user: UserInfo = {
+      username,
+      password,
+    };
+
+    this.dialogRef.close(user);
   }
 
 }

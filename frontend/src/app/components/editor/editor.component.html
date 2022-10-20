@@ -1,0 +1,34 @@
+<form class="post-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title class="post-form__title">Post</h1>
+  <div  mat-dialog-content>
+    <mat-form-field class="post-form__field" appearance="legacy">
+      <mat-label>Title</mat-label>
+      <input class="post-form__field_input" matInput placeholder="enter title..." type="text" formControlName="title">
+      <mat-hint>Post Title</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="post-form__field" appearance="legacy">
+      <mat-label>Author</mat-label>
+      <input class="post-form__field_input" matInput placeholder="enter author name..." type="text" formControlName="author">
+      <mat-hint>Post Author</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="post-form__field" appearance="legacy">
+      <mat-label>Image</mat-label>
+      <input class="post-form__field_input" matInput placeholder="enter image link..." type="text" formControlName="image">
+      <mat-hint>Post Image</mat-hint>
+    </mat-form-field>
+    <div class="editor">
+      <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+      <ngx-editor
+        formControlName="content"
+        [editor]="editor"
+        [placeholder]="'Type here...'"
+      ></ngx-editor>
+    </div>
+  </div>
+  <mat-dialog-actions>
+    <div class="btn-group">
+      <button mat-button type="button" (click)="onNoClick()">No Thanks</button>
+      <button mat-button [mat-dialog-close]="post" type="submit" cdkFocusInitial>Ok</button>
+    </div>
+  </mat-dialog-actions>
+</form>

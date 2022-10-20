@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,8 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditorComponent } from './main/components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { EditorComponent } from './main/components/editor/editor.component';
     HomeComponent,
     NotFoundComponent,
     HeaderComponent,
-    EditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +27,6 @@ import { EditorComponent } from './main/components/editor/editor.component';
     HttpClientModule,
     MaterialUiModule,
     NgxEditorModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [
