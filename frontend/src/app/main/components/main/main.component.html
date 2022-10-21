@@ -3,6 +3,6 @@
   <mat-divider></mat-divider>
   <button mat-button routerLink="users" [disabled]="!(isLogin | async)">USERS LIST</button>
   <button mat-button routerLink="cars">CARS LIST</button>
-  <button mat-button (click)="createPost()" [disabled]="!(isLogin | async)">ADD POST</button>
+  <button mat-button routerLink="posts" [disabled]="!(isLogin | async)">POSTS LIST</button>
 </div>
 <router-outlet></router-outlet>
